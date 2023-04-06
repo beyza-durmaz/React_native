@@ -17,6 +17,7 @@ const App = () => {
   const BottomTabScreen = () => {
     return (
       <Tab.Navigator screenOptions={({route}) => ({
+        tabBarHideOnKeyboard: true,
         tabBarShowLabel: false,
         headerShown: false,
         tabBarStyle: {
@@ -26,7 +27,7 @@ const App = () => {
           let iconName;
           if(route.name === "Home"){
             iconName = focused ? "home-sharp" : "home-outline";
-            size = focused ? size + 7 : size + 2;
+            // size = focused ? size + 7 : size + 2;
           } else if(route.name === "Search"){
             iconName = focused ? "search" : "ios-search-outline"
           } else if(route.name === "Reels"){
