@@ -49,7 +49,8 @@ const SearchContent = (props) => {
                                                 data.images.map((imgData, imgIndex) => {
                                                     return (
                                                         <TouchableOpacity
-                                                            onPressIn={() => props.data(imgData)}
+                                                            delayLongPress={500}
+                                                            onLongPress={() => props.data(imgData)}
                                                             onPressOut={() => props.data(null)}
                                                             style={styles.imgContainer}
                                                         >
@@ -70,7 +71,8 @@ const SearchContent = (props) => {
                                                     data.images.slice(0, 4).map((imgData, imgIndex) => {
                                                         return (
                                                             <TouchableOpacity
-                                                                onPressIn={() => props.data(imgData)}
+                                                                delayLongPress={500}
+                                                                onLongPress={() => props.data(imgData)}
                                                                 onPressOut={() => props.data(null)}
                                                                 style={styles.imgContainer}
                                                             >
@@ -81,7 +83,8 @@ const SearchContent = (props) => {
                                                 }
                                             </View>
                                             <TouchableOpacity
-                                                onPressIn={() => props.data(data.images[5])}
+                                                delayLongPress={500}
+                                                onLongPress={() => props.data(data.images[5])}
                                                 onPressOut={() => props.data(null)}
                                                 style={{ marginLeft: 2 }}
                                             >
@@ -95,22 +98,29 @@ const SearchContent = (props) => {
                                     (
                                         <View style={styles.secondContainer}>
                                             <TouchableOpacity
-                                                onPressIn={() => props.data(data.images[2])}
+                                                delayLongPress={500}
+                                                onLongPress={() => props.data(data.images[2])}
                                                 onPressOut={() => props.data(null)}
                                                 style={{ paddingRight: 2 }}>
                                                 <Image
                                                     source={data.images[2]}
-                                                    style={{ width: 260, height: 300 }}
+                                                    style={{ width: 274, height: 300 }}
                                                 />
                                             </TouchableOpacity>
-                                            <View width={130} style={styles.container}>
+                                            <View style={{
+                                                flexDirection: "row",
+                                                flexWrap: "wrap",
+                                                justifyContent: "space-between",
+                                                width: 140,
+                                            }}>
                                                 {
                                                     data.images.slice(0, 2).map((imgData, imgIndex) => {
                                                         return (
                                                             <TouchableOpacity
-                                                                onPressIn={() => props.data(imgData)}
+                                                                delayLongPress={500}
+                                                                onLongPress={() => props.data(imgData)}
                                                                 onPressOut={() => props.data(null)}
-                                                                style={{paddingBottom: 2}}>
+                                                                style={{ paddingBottom: 2 }}>
                                                                 <Image source={imgData} style={styles.img} />
                                                             </TouchableOpacity>
                                                         )
@@ -133,26 +143,27 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
+
     },
     imgContainer: {
         paddingBottom: 2,
     },
     img: {
-        width: 129,
+        width: 136,
         height: 150
     },
     secondContainer: {
         flexDirection: "row",
-        justifyContent: "space-between"
+        justifyContent: "space-between",
     },
     imgLayout: {
         flexDirection: "row",
         flexWrap: "wrap",
         justifyContent: "space-between",
-        width: 261,
+        width: 274,
     },
     oneImg: {
-        width: 129,
+        width: 140,
         height: 300,
     }
 })

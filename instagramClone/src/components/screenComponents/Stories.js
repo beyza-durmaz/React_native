@@ -1,6 +1,6 @@
 import React from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
-import { StyleSheet, View, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, ScrollView, TouchableWithoutFeedback  } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const Stories = () => {
@@ -47,7 +47,7 @@ const Stories = () => {
             {
                 storyInfo.map((data, index) => {
                     return (
-                        <TouchableOpacity
+                        <TouchableWithoutFeedback 
                             key={index}
                             onPress={() => navigation.push("Status", {
                                 name: data.name,
@@ -76,7 +76,7 @@ const Stories = () => {
                                     {data.name}
                                 </Text>
                             </View>
-                        </TouchableOpacity>
+                        </TouchableWithoutFeedback >
                     )
                 }
                 )
